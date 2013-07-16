@@ -14,7 +14,7 @@ namespace GameName1
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class TicTacToeGame : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -25,7 +25,7 @@ namespace GameName1
 
         static Texture2D _texture;
 
-        public Game1()
+        public TicTacToeGame()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
