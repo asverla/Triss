@@ -26,11 +26,7 @@ namespace GameName1
 
         Rectangle _textureRectangle;
 
-        public event DrawingTime DrawGamestuff;
 
-        public delegate void DrawingTime();
-
-        alex _alex;
 
         static Texture2D _texture;
 
@@ -55,8 +51,6 @@ namespace GameName1
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
 
-            _alex = new alex(this);
-
             IsMouseVisible = true;
 
             graphics.IsFullScreen = false;
@@ -78,7 +72,7 @@ namespace GameName1
         /// </summary>
         protected override void LoadContent()
         {
-            
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -150,7 +144,6 @@ namespace GameName1
 
             // TODO: Add your drawing code here
 
-            DrawGamestuff();
 
             base.Draw(gameTime);
         }
