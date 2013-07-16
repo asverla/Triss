@@ -18,6 +18,7 @@ namespace GameName1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        MouseState previousMouseState;
 
         static Texture2D _texture;
 
@@ -37,6 +38,14 @@ namespace GameName1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 800;
+            IsMouseVisible = true;
+            graphics.IsFullScreen = false;
+
+            previousMouseState = Mouse.GetState();
+
+            graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -50,12 +59,8 @@ namespace GameName1
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
             // TODO: use this.Content to load your game content here
-
             _texture = Content.Load<Texture2D>("test_cross");
-
-
         }
 
         /// <summary>
@@ -76,6 +81,15 @@ namespace GameName1
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            MouseState ms = Mouse.GetState();
+
+            if (ms.LeftButton == ButtonState.Pressed || ms.LeftButton == ButtonState.Released)
+            {
+
+            }
+
+            previousMouseState = ms;
 
             // TODO: Add your update logic here
 
