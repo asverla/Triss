@@ -16,17 +16,16 @@ namespace TicTacToe
     /// </summary>
     public class TicTacToeGame : Game
     {
-
         public eGameState GameState { get; set; }
 
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-                
+        //SpriteBatch spriteBatch;
+
         MouseState previousMouseState;
 
         Texture2D background;
         Rectangle mainFrame;
-        GameBoard m_gameBoard;
+        public GameBoard m_gameBoard;
 
         Rectangle _textureRectangle;
 
@@ -68,7 +67,7 @@ namespace TicTacToe
             graphics.ApplyChanges();
 
             base.Initialize();
-        }   
+        }
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -78,7 +77,7 @@ namespace TicTacToe
         {
 
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            //spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
             _texture = Content.Load<Texture2D>("TS_cross_marker");
@@ -106,21 +105,6 @@ namespace TicTacToe
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            MouseState ms = Mouse.GetState();
-
-            if (ms.LeftButton == ButtonState.Pressed)//|| ms.LeftButton == ButtonState.Released)
-            {
-                Vector2 _msClick = new Vector2(ms.X, ms.Y);
-
-                _textureRectangle.X = ms.X - _texture.Width / 2;
-                _textureRectangle.Y = ms.Y - _texture.Height / 2;
-
-                // for debug only
-             //   Console.WriteLine(_msClick.ToString());
-            }
-
-            previousMouseState = ms;
-
             // TODO: Add your update logic here
             base.Update(gameTime);
         }
@@ -134,26 +118,20 @@ namespace TicTacToe
             GraphicsDevice.Clear(Color.Black);
 
             //Draw background
-            spriteBatch.Begin();
+            //    spriteBatch.Begin();
             //spriteBatch.Draw(background, mainFrame, Color.White);
-            spriteBatch.End();
+            //  spriteBatch.End();
 
             //Draw texture
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
-            spriteBatch.Draw(_texture, _textureRectangle, Color.White);
-            spriteBatch.End();
+            //  spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
+            // spriteBatch.Draw(_texture, _textureRectangle, Color.White);
+            // spriteBatch.End();
 
             // TODO: Add your drawing code here
 
 
             base.Draw(gameTime);
         }
-
-        public void testdraw()
-        {
-
-        }
-
     }
 }

@@ -13,8 +13,10 @@ namespace TicTacToe
 {
     public enum eGameState { None, Player, Comp };
 
-    class Engine : GameComponent
+    class Engine : DrawableGameComponent
     {
+        SpriteBatch _spriteBatch;
+
         public TicTacToeGame game { get; set; }
         public Engine(Game game)
             : base(game)
@@ -51,9 +53,22 @@ namespace TicTacToe
 
                 }
             }
-
             base.Update(gameTime);
         }
+        public override void Draw(GameTime gameTime)
+        {
+            //_spriteBatch.DrawString(Sp, "test", new Vector2(), Color.Red);
+
+            base.Draw(gameTime);
+        }
+
+        protected override void LoadContent()
+        {
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            base.LoadContent();
+        }
+
 
         private void GetClickedSquare(Vector2 click)
         {
@@ -73,6 +88,9 @@ namespace TicTacToe
                 row = 3;
             else
                 row = 2;
+
+            game.m_gameBoard.HandleMouseInput(row, col);
+
 
             Console.WriteLine("Row: " + row);
             Console.WriteLine("Col: " + col);
