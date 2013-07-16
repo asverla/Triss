@@ -13,6 +13,9 @@ namespace GameName1
 {
     public class GameBoard
     {
+        public GameBoard()
+        {
+        }
         private Texture2D m_bkg;
 
     }

@@ -71,6 +71,7 @@ namespace GameName1
         /// </summary>
         protected override void LoadContent()
         {
+            
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
