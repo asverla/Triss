@@ -22,11 +22,35 @@ namespace TicTacToe
         {
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
             base.DrawOrder = (int)DisplayLayer.Background;
+            m_squarelist = new List<Square>();
         }
 
         public override void Initialize()
         {
+            Square tmp0 = new Square(98, 59, 167, 127);
+            Square tmp1 = new Square(299, 64, 169, 129);
+            Square tmp2 = new Square(493, 78, 194, 118);
 
+            Square tmp3 = new Square(107, 223, 170, 121);
+            Square tmp4 = new Square(306, 225, 159, 124);
+            Square tmp5 = new Square(492, 226, 206, 126);
+
+            Square tmp6 = new Square(109, 362, 168, 169);
+            Square tmp7 = new Square(307, 380, 159, 155);
+            Square tmp8 = new Square(502, 390, 194, 145);
+
+            m_squarelist.Add(tmp0);
+            m_squarelist.Add(tmp1);
+            m_squarelist.Add(tmp2);
+
+            m_squarelist.Add(tmp3);
+            m_squarelist.Add(tmp4);
+            m_squarelist.Add(tmp5);
+
+            m_squarelist.Add(tmp6);
+            m_squarelist.Add(tmp7);
+            m_squarelist.Add(tmp8);
+            
             base.Initialize();
         }
         protected override void LoadContent()
@@ -46,9 +70,26 @@ namespace TicTacToe
             base.Draw(gameTime);
         }
 
-        public void HandleMouseInput(int row, int col)
+        public bool ValidPlacementOfMarker(Vector2 mouseInput)
         {
-           
+            int x = (int)mouseInput.X;
+            int y = (int)mouseInput.Y;
+            
+            Rectangle tmp = new Rectangle(x,y, 2, 2);
+            for (int i = 0; i < m_squarelist.Count;i++ )
+            {
+                if(tmp.Intersects(m_squarelist[i].GetRect()))
+                {
+                    return m_squarelist[i].IsOccupied();
+                }
+            }
+
+            return false;
+        }
+
+        public List<Square> GetSquares()
+        {
+            return m_squarelist;
         }
     }
 }
