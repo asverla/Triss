@@ -105,9 +105,7 @@ namespace GameName1
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
-
-            spriteBatch.Draw(_texture, new Rectangle(0, 0, 100, 100), Color.White);
-
+            spriteBatch.Draw(_texture, new Rectangle(0, 0, _texture.Width, _texture.Height), Color.White);
             spriteBatch.End();
 
             // TODO: Add your drawing code here
