@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="GameBoard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +63,7 @@
     <Content Include="Content\TS_bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TS_bkg.png" />
     <Content Include="Content\TS_cross_marker.png" />
     <Content Include="Content\TS_ring_marker.png" />
     <Content Include="Icon.ico" />
