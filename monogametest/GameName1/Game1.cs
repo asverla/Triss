@@ -16,6 +16,9 @@ namespace GameName1
     /// </summary>
     public class TicTacToeGame : Game
     {
+
+        public eGameState GameState { get; set; }
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         MouseState previousMouseState;
@@ -25,8 +28,6 @@ namespace GameName1
         GameBoard m_gameBoard;
 
         Rectangle _textureRectangle;
-
-
 
         static Texture2D _texture;
 
@@ -51,20 +52,22 @@ namespace GameName1
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
 
+            Components.Add(new Engine(this));
+
             IsMouseVisible = true;
 
             graphics.IsFullScreen = false;
 
             mainFrame = new Rectangle(0, 0, 800, 600);
 
-
+            GameState = eGameState.Player;
 
             previousMouseState = Mouse.GetState();
 
             graphics.ApplyChanges();
 
             base.Initialize();
-        }
+        }   
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -112,7 +115,7 @@ namespace GameName1
                 _textureRectangle.Y = ms.Y - _texture.Height / 2;
 
                 // for debug only
-                Console.WriteLine(_msClick.ToString());
+             //   Console.WriteLine(_msClick.ToString());
             }
 
             previousMouseState = ms;
