@@ -23,8 +23,6 @@ namespace GameName1
         Texture2D background;
         Rectangle mainFrame;
 
-        Rectangle _textureRectangle;
-
         public event DrawingTime DrawGamestuff;
 
         public delegate void DrawingTime();
@@ -55,12 +53,10 @@ namespace GameName1
             _alex = new alex(this);
 
             IsMouseVisible = true;
-
+            
             graphics.IsFullScreen = false;
-
-            mainFrame = new Rectangle(0, 0, 800, 600);
-
-
+            
+            mainFrame = new Rectangle(0, 0, 800,600);
 
             previousMouseState = Mouse.GetState();
 
@@ -82,8 +78,6 @@ namespace GameName1
             // TODO: use this.Content to load your game content here
             _texture = Content.Load<Texture2D>("TS_cross_marker");
             background = Content.Load<Texture2D>("TS_bkg");
-
-            _textureRectangle = new Rectangle(0, 0, _texture.Width, _texture.Height);
         }
 
         /// <summary>
@@ -107,20 +101,15 @@ namespace GameName1
 
             MouseState ms = Mouse.GetState();
 
-            if (ms.LeftButton == ButtonState.Pressed)//|| ms.LeftButton == ButtonState.Released)
+            if (ms.LeftButton == ButtonState.Pressed || ms.LeftButton == ButtonState.Released)
             {
-                Vector2 _msClick = new Vector2(ms.X, ms.Y);
 
-                _textureRectangle.X = ms.X - _texture.Width / 2;
-                _textureRectangle.Y = ms.Y - _texture.Height / 2;
-
-                // for debug only
-                Console.WriteLine(_msClick.ToString());
             }
-
+                
             previousMouseState = ms;
 
             // TODO: Add your update logic here
+
             base.Update(gameTime);
         }
 
@@ -138,13 +127,15 @@ namespace GameName1
             spriteBatch.End();
 
             //Draw texture
-
+       
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
-            spriteBatch.Draw(_texture, _textureRectangle, Color.White);
+            spriteBatch.Draw(_texture, new Rectangle(0, 0, _texture.Width, _texture.Height), Color.White);
 
             spriteBatch.End();
 
             // TODO: Add your drawing code here
+
+            testdraw();
 
             DrawGamestuff();
 
