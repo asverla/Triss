@@ -9,23 +9,24 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
-namespace GameName1
+namespace TicTacToe
 {
     public class GameBoard : DrawableGameComponent 
     {
         private Texture2D m_bkg;
         SpriteBatch spriteBatch;
-        Game gamePtr;
-        
+        List<Square> m_squarelist;
+
         public GameBoard(Game game)
             : base(game)
         {
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
+            base.DrawOrder = (int)DisplayLayer.Background;
         }
 
         public override void Initialize()
         {
-            
+
             base.Initialize();
         }
         protected override void LoadContent()
@@ -45,5 +46,9 @@ namespace GameName1
             base.Draw(gameTime);
         }
 
+        public void HandleMouseInput(int row, int col)
+        {
+           
+        }
     }
 }

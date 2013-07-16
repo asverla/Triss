@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
 #endregion
 
-namespace GameName1
+namespace TicTacToe
 {
     /// <summary>
     /// This is the main type for your game
@@ -125,7 +125,6 @@ namespace GameName1
             previousMouseState = ms;
 
             // TODO: Add your update logic here
-            //m_gameBoard.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -146,7 +145,6 @@ namespace GameName1
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
             spriteBatch.Draw(_texture, _textureRectangle, Color.White);
-
             spriteBatch.End();
 
             // TODO: Add your drawing code here
