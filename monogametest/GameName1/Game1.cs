@@ -114,6 +114,7 @@ namespace GameName1
         {
             GraphicsDevice.Clear(Color.Black);
 
+<<<<<<< HEAD
             //Draw background
             spriteBatch.Begin();
             spriteBatch.Draw(background, mainFrame, Color.White);
@@ -122,6 +123,10 @@ namespace GameName1
             //Draw texture
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
             spriteBatch.Draw(_texture, new Rectangle(0, 0, 100, 100), Color.White);
+=======
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
+            spriteBatch.Draw(_texture, new Rectangle(0, 0, _texture.Width, _texture.Height), Color.White);
+>>>>>>> 0c36050ee97f3c26e9e0dac158b3be2ba22b90f2
             spriteBatch.End();
 
             // TODO: Add your drawing code here
