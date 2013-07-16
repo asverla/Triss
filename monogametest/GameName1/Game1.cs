@@ -124,10 +124,7 @@ namespace GameName1
             previousMouseState = ms;
 
             // TODO: Add your update logic here
-<<<<<<< HEAD
-=======
             //m_gameBoard.Update(gameTime);
->>>>>>> 6a44eb6287402ca5e20678a32228f03e5050931f
             base.Update(gameTime);
         }
 
