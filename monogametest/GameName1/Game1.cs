@@ -22,6 +22,7 @@ namespace GameName1
 
         Texture2D background;
         Rectangle mainFrame;
+        GameBoard m_gameBoard;
 
         Rectangle _textureRectangle;
 
@@ -37,6 +38,8 @@ namespace GameName1
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
+            m_gameBoard = new GameBoard(this);
+            Components.Add(m_gameBoard);
             Content.RootDirectory = "Content";
         }
 
@@ -121,6 +124,10 @@ namespace GameName1
             previousMouseState = ms;
 
             // TODO: Add your update logic here
+<<<<<<< HEAD
+=======
+            //m_gameBoard.Update(gameTime);
+>>>>>>> 6a44eb6287402ca5e20678a32228f03e5050931f
             base.Update(gameTime);
         }
 
