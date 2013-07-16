@@ -23,6 +23,12 @@ namespace GameName1
         Texture2D background;
         Rectangle mainFrame;
 
+        public event DrawingTime DrawGamestuff;
+
+        public delegate void DrawingTime();
+
+        alex _alex;
+
         static Texture2D _texture;
 
         public TicTacToeGame()
@@ -44,7 +50,7 @@ namespace GameName1
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
 
-            
+            _alex = new alex(this);
 
             IsMouseVisible = true;
             
@@ -69,7 +75,7 @@ namespace GameName1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            _texture = Content.Load<Texture2D>("test_cross");
+            _texture = Content.Load<Texture2D>("TS_cross_marker");
             background = Content.Load<Texture2D>("TS_bkg");
         }
 
@@ -98,7 +104,7 @@ namespace GameName1
             {
 
             }
-
+                
             previousMouseState = ms;
 
             // TODO: Add your update logic here
@@ -128,7 +134,17 @@ namespace GameName1
 
             // TODO: Add your drawing code here
 
+            testdraw();
+
+            DrawGamestuff();
+
             base.Draw(gameTime);
         }
+
+        public void testdraw()
+        {
+
+        }
+
     }
 }

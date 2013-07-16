@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="alex.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Program.cs" />
@@ -57,10 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\test_cross.bmp">
+    <Content Include="Content\TS_bkg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TS_bkg.png">
+    <Content Include="Content\TS_cross_marker.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TS_ring_marker.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TS_bkg.png" />
