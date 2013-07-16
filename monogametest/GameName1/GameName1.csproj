@@ -8,7 +8,7 @@
     <ProjectGuid>{91B8D929-4787-4500-8D6D-D28DC79ABE46}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameName1</RootNamespace>
+    <RootNamespace>TicTacToe</RootNamespace>
     <AssemblyName>GameName1</AssemblyName>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -69,7 +69,6 @@
     <Content Include="Content\TS_ring_marker.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TS_bkg.png" />
     <Content Include="Content\TS_cross_marker.png" />
     <Content Include="Content\TS_ring_marker.png" />
     <Content Include="Icon.ico" />
