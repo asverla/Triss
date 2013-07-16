@@ -26,7 +26,7 @@ namespace GameName1
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+             Content.RootDirectory = "Content";
         }
 
         /// <summary>
