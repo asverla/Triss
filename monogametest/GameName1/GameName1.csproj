@@ -59,6 +59,11 @@
     <Content Include="Content\test_cross.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TS_bkg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TS_cross_marker.png" />
+    <Content Include="Content\TS_ring_marker.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup />

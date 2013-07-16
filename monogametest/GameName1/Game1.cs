@@ -44,11 +44,13 @@ namespace GameName1
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
 
+            
+
             IsMouseVisible = true;
             
             graphics.IsFullScreen = false;
             
-            mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            mainFrame = new Rectangle(0, 0, 800,600);
 
             previousMouseState = Mouse.GetState();
 
@@ -68,7 +70,7 @@ namespace GameName1
 
             // TODO: use this.Content to load your game content here
             _texture = Content.Load<Texture2D>("test_cross");
-            background = Content.Load<Texture2D>("test_cross");
+            background = Content.Load<Texture2D>("TS_bkg");
         }
 
         /// <summary>
@@ -112,16 +114,14 @@ namespace GameName1
         {
             GraphicsDevice.Clear(Color.Black);
 
+            //Draw background
             spriteBatch.Begin();
-
             spriteBatch.Draw(background, mainFrame, Color.White);
-
             spriteBatch.End();
 
+            //Draw texture
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
-
             spriteBatch.Draw(_texture, new Rectangle(0, 0, 100, 100), Color.White);
-
             spriteBatch.End();
 
             // TODO: Add your drawing code here
