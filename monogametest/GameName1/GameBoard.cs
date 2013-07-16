@@ -11,22 +11,38 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace GameName1
 {
-    public class GameBoard : GameComponent 
+    public class GameBoard : DrawableGameComponent 
     {
         private Texture2D m_bkg;
+        SpriteBatch spriteBatch;
+        Game gamePtr;
         
-        public GameBoard(Game game):base(game)
+        public GameBoard(Game game)
+            : base(game)
         {
+            spriteBatch = new SpriteBatch(game.GraphicsDevice);
         }
 
         public override void Initialize()
         {
+            
             base.Initialize();
         }
-
+        protected override void LoadContent()
+        {
+            m_bkg = base.Game.Content.Load<Texture2D>("TS_bkg");
+            base.LoadContent();
+        }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+        }
+        public override void Draw(GameTime gameTime)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(m_bkg,new Rectangle(0,0,m_bkg.Width,m_bkg.Height),Color.White);
+            spriteBatch.End();
+            base.Draw(gameTime);
         }
 
     }

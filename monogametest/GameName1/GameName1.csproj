@@ -67,7 +67,6 @@
     <Content Include="Content\TS_ring_marker.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TS_bkg.png" />
     <Content Include="Content\TS_cross_marker.png" />
     <Content Include="Content\TS_ring_marker.png" />
     <Content Include="Icon.ico" />

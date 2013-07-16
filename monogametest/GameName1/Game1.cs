@@ -18,6 +18,7 @@ namespace GameName1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+                
         MouseState previousMouseState;
 
         Texture2D background;
@@ -138,7 +139,7 @@ namespace GameName1
 
             //Draw background
             spriteBatch.Begin();
-            spriteBatch.Draw(background, mainFrame, Color.White);
+            //spriteBatch.Draw(background, mainFrame, Color.White);
             spriteBatch.End();
 
             //Draw texture
