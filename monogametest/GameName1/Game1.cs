@@ -20,13 +20,16 @@ namespace GameName1
         SpriteBatch spriteBatch;
         MouseState previousMouseState;
 
+        Texture2D background;
+        Rectangle mainFrame;
+
         static Texture2D _texture;
 
         public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-             Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content";
         }
 
         /// <summary>
@@ -40,8 +43,12 @@ namespace GameName1
             // TODO: Add your initialization logic here
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 800;
+
             IsMouseVisible = true;
+            
             graphics.IsFullScreen = false;
+            
+            mainFrame = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 
             previousMouseState = Mouse.GetState();
 
@@ -61,6 +68,7 @@ namespace GameName1
 
             // TODO: use this.Content to load your game content here
             _texture = Content.Load<Texture2D>("test_cross");
+            background = Content.Load<Texture2D>("test_cross");
         }
 
         /// <summary>
@@ -103,6 +111,12 @@ namespace GameName1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(background, mainFrame, Color.White);
+
+            spriteBatch.End();
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
 
