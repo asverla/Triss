@@ -11,12 +11,23 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace GameName1
 {
-    public class GameBoard
+    public class GameBoard : GameComponent 
     {
-        public GameBoard()
+        private Texture2D m_bkg;
+        
+        public GameBoard(Game game):base(game)
         {
         }
-        private Texture2D m_bkg;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
 
     }
 }
