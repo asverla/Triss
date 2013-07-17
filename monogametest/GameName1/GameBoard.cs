@@ -82,7 +82,10 @@ namespace TicTacToe
                 if (tmp.Intersects(s.GetRect()))
                 {
                     if (s.IsOccupied == false)
+                    {
+                        index = m_squarelist.IndexOf(s);
                         return !s.IsOccupied;
+                    }
                 }
             }
             return true;

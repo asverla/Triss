@@ -72,8 +72,10 @@ namespace TicTacToe
 
         private void GetClickedSquare(Vector2 click)
         {
-            int index;
-            game.m_gameBoard.ValidPlacementOfMarker(click);
+            int index = -1;
+
+            if (game.m_gameBoard.ValidPlacementOfMarker(click, ref index))
+                game.m_gameBoard.SetPlacementOfMarker(index, game.GameState);
         }
     }
 }
