@@ -70,7 +70,7 @@ namespace TicTacToe
             base.Draw(gameTime);
         }
 
-        public bool ValidPlacementOfMarker(Vector2 mouseInput)
+        public bool ValidPlacementOfMarker(Vector2 mouseInput, ref int column, ref int row)
         {
             int x = (int)mouseInput.X;
             int y = (int)mouseInput.Y;
@@ -80,10 +80,17 @@ namespace TicTacToe
             {
                 if(tmp.Intersects(m_squarelist[i].GetRect()))
                 {
-                    return m_squarelist[i].IsOccupied();
+                    bool validSquareToSet = !m_squarelist[i].IsOccupied();
+                    if (validSquareToSet)
+                    {
+                        column = i / 3;
+                        row = i % 3;
+                    }
+                    return validSquareToSet;
                 }
             }
-
+            column = 0;
+            row = 0;
             return false;
         }
 
