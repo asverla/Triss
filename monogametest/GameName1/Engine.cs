@@ -72,29 +72,8 @@ namespace TicTacToe
 
         private void GetClickedSquare(Vector2 click)
         {
-            int row;
-            int col;
-
-            if (click.X < 266)
-                col = 1;
-            else if (click.X > 532)
-                col = 3;
-            else
-                col = 2;
-
-            if (click.Y < 200)
-                row = 1;
-            else if (click.Y > 400)
-                row = 3;
-            else
-                row = 2;
-
-            game.m_gameBoard.HandleMouseInput(row, col);
-
-
-            Console.WriteLine("Row: " + row);
-            Console.WriteLine("Col: " + col);
-
+            int index;
+            game.m_gameBoard.ValidPlacementOfMarker(click);
         }
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.GamerServices;
 
 namespace TicTacToe
 {
-    public class GameBoard : DrawableGameComponent 
+    public class GameBoard : DrawableGameComponent
     {
         private Texture2D m_bkg;
         SpriteBatch spriteBatch;
@@ -50,7 +50,7 @@ namespace TicTacToe
             m_squarelist.Add(tmp6);
             m_squarelist.Add(tmp7);
             m_squarelist.Add(tmp8);
-            
+
             base.Initialize();
         }
         protected override void LoadContent()
@@ -65,26 +65,32 @@ namespace TicTacToe
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(m_bkg,new Rectangle(0,0,m_bkg.Width,m_bkg.Height),Color.White);
+            spriteBatch.Draw(m_bkg, new Rectangle(0, 0, m_bkg.Width, m_bkg.Height), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
-        public bool ValidPlacementOfMarker(Vector2 mouseInput)
+        public bool ValidPlacementOfMarker(Vector2 mouseInput, ref int index)
         {
             int x = (int)mouseInput.X;
             int y = (int)mouseInput.Y;
-            
-            Rectangle tmp = new Rectangle(x,y, 2, 2);
-            for (int i = 0; i < m_squarelist.Count;i++ )
+
+            Rectangle tmp = new Rectangle(x, y, 2, 2);
+
+            foreach (Square s in m_squarelist)
             {
-                if(tmp.Intersects(m_squarelist[i].GetRect()))
+                if (tmp.Intersects(s.GetRect()))
                 {
-                    return m_squarelist[i].IsOccupied();
+                    if (s.IsOccupied == false)
+                        return !s.IsOccupied;
                 }
             }
+            return true;
+        }
 
-            return false;
+        public void SetPlacementOfMarker(int index, eGameState value)
+        {
+            m_squarelist[index].SquareValue = value;
         }
 
         public List<Square> GetSquares()

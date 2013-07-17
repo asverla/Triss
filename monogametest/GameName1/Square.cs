@@ -14,29 +14,27 @@ namespace TicTacToe
 {
     public class Square
     {
-        Rectangle   squareXYWH;
-        bool        m_occupied;
+        Rectangle squareXYWH;
+        public eGameState SquareValue { get; set; }
+        public bool IsOccupied { get { return SquareValue == eGameState.None ? false : true; } }
+
         public Square(int x, int y, int w, int h)
         {
             squareXYWH.X = x;
             squareXYWH.Y = y;
             squareXYWH.Width = w;
             squareXYWH.Height = h;
-            m_occupied = false;
+            SquareValue = eGameState.None;
         }
 
         public void Init(int x, int y, int w, int h)
         {
-           
+
         }
         public Rectangle GetRect()
         {
             return squareXYWH;
         }
-
-        public bool IsOccupied()
-        {
-            return m_occupied;
-        }
+        
     }
 }
