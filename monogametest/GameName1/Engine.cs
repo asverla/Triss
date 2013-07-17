@@ -16,12 +16,14 @@ namespace TicTacToe
     class Engine : DrawableGameComponent
     {
         SpriteBatch _spriteBatch;
+        public GameBoard GameBoard { get; set; }
 
         public TicTacToeGame game { get; set; }
         public Engine(Game game)
             : base(game)
         {
             this.game = (TicTacToeGame)game;
+            this.GameBoard = this.game.m_gameBoard;
         }
 
         public override void Initialize()
@@ -35,6 +37,8 @@ namespace TicTacToe
             {
                 //implement computer logic
                 //getgameboard status and evaluate, set next move
+                EvalComp();
+
             }
             else if (game.GameState == eGameState.Player)
             {
@@ -42,15 +46,8 @@ namespace TicTacToe
 
                 if (ms.LeftButton == ButtonState.Pressed)//|| ms.LeftButton == ButtonState.Released)
                 {
-                    GetClickedSquare(new Vector2(ms.X, ms.Y));
-                    game.GameState = eGameState.Comp;
-
-                    //_textureRectangle.X = ms.X - _texture.Width / 2;
-                    //_textureRectangle.Y = ms.Y - _texture.Height / 2;
-
-                    // for debug only
-                    //   Console.WriteLine(_msClick.ToString());
-
+                    if (EvalClick(new Vector2(ms.X, ms.Y)))
+                        game.GameState = eGameState.Comp;
                 }
             }
             base.Update(gameTime);
@@ -70,12 +67,33 @@ namespace TicTacToe
         }
 
 
-        private void GetClickedSquare(Vector2 click)
+        private bool EvalClick(Vector2 click)
         {
             int index = -1;
 
-            if (game.m_gameBoard.ValidPlacementOfMarker(click, ref index))
-                game.m_gameBoard.SetPlacementOfMarker(index, game.GameState);
+            if (GameBoard.ValidPlacementOfMarker(click, ref index))
+            {
+                GameBoard.SetPlacementOfMarker(index, game.GameState);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void EvalComp()
+        {
+            List<Square> _squares = GameBoard.GetSquares();
+
+            foreach (var s in _squares)
+            {
+                if (s.IsOccupied == false)
+                {
+                    GameBoard.SetPlacementOfMarker(_squares.IndexOf(s), eGameState.Comp);
+                    game.GameState = eGameState.Player;
+
+                    return;
+                }
+            }
         }
     }
 }
